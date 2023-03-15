@@ -17,7 +17,7 @@ nav {
     padding: 10px;
     margin-top: 0px;
     width: 99%;
-    box-shadow: 0 -4px 15px -3px #000;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -61,7 +61,7 @@ form {
     flex-direction: column;
     align-items: center;
     background-color: #97999B;
-    height: 500px;
+    height: 540px;
     font-family: sans-serif;
     width: 500px;
     margin-top: 100px;
@@ -81,6 +81,10 @@ form {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
+span {
+    color: #9B26B6;
+}
+
 /* Estilo para o placeholder */
 .input-field::placeholder {
     color: #999;
@@ -97,6 +101,13 @@ form {
     /* tamanho do preenchimento interno */
     font-size: 14px;
     /* tamanho da fonte */
+}
+
+p.obs {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    margin-bottom: 2px;
+    color: #333333;
 }
 
 input {

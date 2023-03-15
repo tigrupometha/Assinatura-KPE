@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assinatura KPE</title>
+  <title>Gerador de Assinaturas KPE</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
 
@@ -27,11 +27,14 @@
       <p id="subtitulo">Complete suas informações</p>
       <!-- <label class="titulo">Preencha o formulário:</label><br> -->
       <label class="label-titulo" for="name">Nome:</label>
+      <p class="obs">Não utilizar títulos. Ex.: Dir., Eng., Dr.</p>
       <input class="entrada" type="text" class="input-field" placeholder="   Nome Completo" id="name" name="name">
-      <label class="label-titulo" for="cargo">Cargo: </label>
-      <input class="entrada" type="text" class="input-field" placeholder="   Cargo" id="cargo" name="cargo">
-      <label class="label-titulo" for="cargo">Unidade/Setor: </label>
-      <input class="entrada" type="text" class="input-field" placeholder="   Unidade" id="unidade" name="unidade">
+      <label class="label-titulo" for="cargo">Área: </label>
+      <p class="obs">Ex.: Compliance, Gestão de Pessoas, etc. </p>
+      <input class="entrada" type="text" class="input-field" placeholder="   Área" id="cargo" name="cargo">
+      <label class="label-titulo" for="cargo">Corporativo/Obra<span class="asterisco">*</span>: </label>
+      <p class="obs">*Inserir Corporativo ou nome da Obra</p>
+      <input class="entrada" type="text" class="input-field" placeholder="   Corporativo/Obra" id="unidade" name="unidade">
       <label class="label-titulo" for="email">E-mail corporativo: </label>
       <input class="entrada" type="text" class="input-field" placeholder="   seu.usuario@kpe.com.br" id="email" name="email">
       <label class="label-titulo" for="telefone">Telefone corporativo: </label>

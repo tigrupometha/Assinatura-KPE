@@ -25,7 +25,7 @@ function generateImage() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // SAÍDA DO INPUT NOME
-        ctx.font = "700 100px Open Sans";
+        ctx.font = "700 100px Segoe UI";
         ctx.fillStyle = "#8d3996";
         ctx.fillText(`${name}`, 40, 150);
 

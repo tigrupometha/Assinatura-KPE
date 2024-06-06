@@ -8,9 +8,9 @@ function generateImage() {
     const canvas = document.getElementById("canvas");
     const container = document.querySelector('.container-img');
 
-   // const imagem = new Image();
-    // imagem.src = 'https://kpe.com.br/wp-content/uploads/2023/03/Assinatura-Kpe-Selos.png';
-    // imagem.src = './Assinatura-Kpe-Selos.png';
+   const imagem = new Image();
+    imagem.src = 'https://kpe.com.br/wp-content/uploads/2023/03/Assinatura-Kpe-Selos.png';
+    imagem.src = './Assinatura-Kpe-Selos.png';
     imagem.addEventListener('load', () => {
         // Desenha a imagem no canvas
 

@@ -8,83 +8,68 @@ function generateImage() {
     const canvas = document.getElementById("canvas");
     const container = document.querySelector('.container-img');
 
-   const imagem = new Image();
-    imagem.src = 'https://kpe.com.br/wp-content/uploads/2023/03/Assinatura-Kpe-Selos.png';
-    imagem.src = './Assinatura-Kpe-Selos.png';
+    // Carrega a imagem do selo/logo
+    const imagem = new Image();
+    imagem.src = './Assinatura-Kpe-Selos.png'; // Certifique-se que o caminho da imagem está correto
     imagem.addEventListener('load', () => {
-        // Desenha a imagem no canvas
-
-        // LARGURA E ALTURA DO CANVAS
-        canvas.width = 2000;
-        canvas.height = 899;
+        // Define as dimensões do canvas
+        canvas.width = 500; // Largura ideal para assinaturas
+        canvas.height = 150; // Altura ideal para assinaturas
 
         const ctx = canvas.getContext("2d");
 
-        //DEFINIDO TAMANHO E COR 
+        // Define o fundo branco
         ctx.fillStyle = "white";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // SAÍDA DO INPUT NOME
-        ctx.font = "700 100px Segoe UI";
+        // SAÍDA DO INPUT NOME (ajustado para o novo tamanho)
+        ctx.font = "700 40px Segoe UI";
         ctx.fillStyle = "#8d3996";
-        ctx.fillText(`${name}`, 40, 150);
+        ctx.fillText(`${name}`, 20, 50);
 
-        // SAÍDA DO INPUT CARGO
-        ctx.font = "55px Open Sans";
+        // SAÍDA DO INPUT CARGO (ajustado)
+        ctx.font = "25px Open Sans";
         ctx.fillStyle = "#333333";
-        ctx.fillText(`${cargo}`, 40, 220);
+        ctx.fillText(`${cargo}`, 20, 80);
 
-        // SAÍDA DO INPUT UNIDADE
-        ctx.font = "55px Open Sans";
+        // SAÍDA DO INPUT UNIDADE (ajustado)
+        ctx.font = "25px Open Sans";
         ctx.fillStyle = "#333333";
-        ctx.fillText(`${unidade}`, 40, 290);
+        ctx.fillText(`${unidade}`, 20, 110);
 
-        // SAÍDA DO INPUT EMAIL
-        ctx.font = "55px Open Sans";
+        // SAÍDA DO INPUT EMAIL E TELEFONE (ajustado)
+        ctx.font = "25px Open Sans";
         ctx.fillStyle = "#333333";
-        ctx.fillText(`${email} | ${telefone}`, 40, 350);
+        ctx.fillText(`${email} | ${telefone}`, 20, 140);
 
-        // SAÍDA DO INPUT TELEFONE
-        //ctx.font = "55px Open Sans";
-        //ctx.fillStyle = "#333333";
-        //ctx.fillText(`| ${telefone}`, 710, 350);
-
-        ctx.drawImage(imagem, 0, 370, 2000, 493);
+        // Desenha a imagem do selo/logo ajustada
+        ctx.drawImage(imagem, 320, 90, 160, 60); // Ajuste proporcional à nova largura do canvas
 
         // CONVERTENDO O CANVA EM IMAGEM
         const dataURL = canvas.toDataURL();
         const img = new Image();
         img.classList.add('img-ass');
         img.src = dataURL;
-        img.height = 400;
+        img.height = 150;
         container.appendChild(img);
 
-        // GERANDO LINK PARA DOWNLOAD
-        /* const downloadLink = document.createElement('a');
-         downloadLink.href = dataURL;
-         downloadLink.download = 'assinatura.png'; 
- 
-         // ADICIONA O LINK DE DOWNLOAD NA PÁGINA E AO CLICAR O DOWNLOAD É INICIADO AUTOMATICAMENTE
-         document.body.appendChild(downloadLink);
-         downloadLink.click();*/
+        // cria o elemento do botão de download
+        const downloadBtn = document.createElement("button");
+        downloadBtn.classList.add('bntDownload');
+        downloadBtn.innerHTML = "Download da Imagem";
+
+        // adiciona o ouvinte de evento para o botão
+        downloadBtn.addEventListener("click", () => {
+            // cria um elemento de link temporário para o download da imagem
+            const link = document.createElement("a");
+            link.download = "assinaturaKPE.png";
+            link.href = canvas.toDataURL();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // adiciona o botão à página HTML
+        container.appendChild(downloadBtn);
     });
-
-    // cria o elemento do botão de download
-    const downloadBtn = document.createElement("button");
-    downloadBtn.classList.add('bntDownload');
-    downloadBtn.innerHTML = "Download da Imagem";
-
-    // adiciona o ouvinte de evento para o botão
-    downloadBtn.addEventListener("click", () => {
-        // cria um elemento de link temporário para o download da imagem
-        const link = document.createElement("a");
-        link.download = "assinaturaKPE.png";
-        link.href = canvas.toDataURL();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-
-    // adiciona o botão à página HTML
-    container.appendChild(downloadBtn);
 }
